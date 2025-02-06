@@ -36,6 +36,7 @@ document.getElementById('launch-ar').addEventListener('click', () => {
 
     function addPoint(position) {
         points.push(new THREE.Vector3(position.x, position.y, position.z));
+        console.log('Point added:', position);
         if (points.length === 2) {
             if (currentStep === 'length') {
                 measureLength();
@@ -48,10 +49,13 @@ document.getElementById('launch-ar').addEventListener('click', () => {
     }
 
     marker.addEventListener('click', (event) => {
+        console.log('Marker clicked');
         const intersectedElement = event.detail.intersectedEl;
         if (intersectedElement) {
             const position = intersectedElement.object3D.position;
             addPoint(position);
+        } else {
+            console.log('No intersected element');
         }
     });
 });
