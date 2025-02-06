@@ -1,5 +1,6 @@
 document.getElementById('launch-ar').addEventListener('click', () => {
-    // Initialize AR.js
+    document.getElementById('ar-container').style.display = 'block';
+
     const scene = document.querySelector('a-scene');
     const marker = document.querySelector('a-marker');
 
